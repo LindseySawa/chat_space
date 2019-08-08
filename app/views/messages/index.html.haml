@@ -1,0 +1,60 @@
+!!!
+%html{lang: "ja"}
+  %head
+    %meta{charset: "utf-8"}
+  %body
+    %header
+      グループを作成しました 
+
+    .contents
+      .left
+        .left__top
+          %ul.left__content
+            %li
+              %p username
+            %li
+              =link_to "/", class: "left__btn--1" do
+                %i.fa.fa-edit  
+            %li
+              =link_to "/", class: "left__btn--1" do
+                %i.fa.fa-cog
+      
+        .left__bottom
+          %p.left__bottom__groupname chat name
+          %p.left__bottom__msg メッセージ
+
+
+
+      .right
+        .right__top
+          %ul
+            %li
+              %h3.right__top__gname チャットネイム
+            %li.right__top__edit
+              =link_to "Edit", '/', :class => "right__top__btn1"
+            %li
+              %p.right__top__member Member:
+
+        .right__middle
+          .right__chat1
+            .right__chat1__user 名前
+            .right__chat1__time 時間
+          .right__chat2
+            .right__chat2__msg チャット内容
+          
+
+
+        .right__bottom
+          .right__form
+            %form.right__msg
+              .right__text
+                %input.right__text__input{placeholder: 'type a message'}
+                  %label.right__text__msg
+                    = fa_icon 'camera-retro', class: 'imageicon'
+                    %input.hidden{type: 'file'}
+              %input.right__btn2{type: 'submit', value: 'SEND'}
+
+        
+
+
+    
