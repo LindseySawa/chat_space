@@ -11,5 +11,9 @@
           = fa_icon 'cog', class: 'left__btn--1'
 
   .left__bottom
-    %p.left__bottom__groupname chat name
-    %p.left__bottom__msg メッセージ
+    - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          .left__bottom__groupname
+            = group.name
+          .left__bottom__msg
+            メッセージはまだありません。
