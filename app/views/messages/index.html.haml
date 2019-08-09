@@ -22,7 +22,16 @@
               %p.right__top__member Member:
 
         .right__middle
-          = render partial: 'message', collection: @messages
+          .right__chat1
+            .right__chat1__user
+              = message.user.name
+            .right__chat1__time
+              = message.created_at.strftime("%Y/%m/%d %H:%M")
+          .right__chat2
+            - if message.content.present?
+              .right__chat2__msg
+                = message.content
+              = image_tag message.image.url, class: 'right__chat2__img' if message.image.present?
           
         .right__bottom
           .right__form
