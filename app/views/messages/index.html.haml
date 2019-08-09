@@ -4,9 +4,9 @@
     %meta{charset: "utf-8"}
   %body
     %header
-      グループを作成しました 
 
     .contents
+      =render partial:"shared/left"
     
 
 
@@ -22,7 +22,7 @@
               %p.right__top__member Member:
 
         .right__middle
-          =render @messages
+          = render partial: 'message', collection: @messages
           
         .right__bottom
           .right__form
