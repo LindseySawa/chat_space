@@ -38,7 +38,7 @@
           
         .right__bottom
           = form_for [@group, @message] do |f|
-            = f.text_field :content, class: 'right__text__input', id: 'new_message', placeholder: 'type a message'
+            = f.text_field :content, class: 'right__text__input', id: 'new_msg', placeholder: 'type a message'
             .form__mask
               = f.label :image, class: 'right__text__msg' do
                 = fa_icon 'camera-retro', class: 'imageicon'
