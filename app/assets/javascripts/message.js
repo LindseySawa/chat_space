@@ -27,14 +27,14 @@ $(function () {
       processData: false,
       contentType: false
     })
-      .done(function (data) {
-        var html = buildHTML(data);
-        $('.right__middle').append(html)
-        $('#message_content').val('')
-        $('.right__chat1').animate({ scrollTop: $('.right__chat1').offset().top }, 'slow');
-      })
-      .fail(function () {
-        alert('error');
-      })
+    .done(function (data) {
+      var html = buildHTML(data);
+      $('.right__middle').append(html)
+      $('#message_content').val('')
+      $('.right__middle2').animate({ scrollTop: $('.right__middle2')[0].scrollHeight }, 'fast');
+    })
+    .fail(function () {
+      alert('error');
+    })
   })
 });
