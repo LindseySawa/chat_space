@@ -81,6 +81,7 @@ html, body{
   position: relative;
   min-height: calc(100vh - 70px);
 
+
   &__top{
     height: 100px;
     box-sizing: border-box;
@@ -90,7 +91,7 @@ html, body{
       font-size: 20px;
     }
     &__member{
-      font-size: 12px;
+      font-size: 8px;
     }
       &__btn1{
         text-decoration: none;

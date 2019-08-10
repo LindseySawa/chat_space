@@ -15,11 +15,13 @@
         .right__top
           %ul
             %li
-              %h3.right__top__gname チャットネイム
+              %h3.right__top__gname 
+                = @group.name
             %li.right__top__edit
-              =link_to "Edit", '/', :class => "right__top__btn1"
-            %li
-              %p.right__top__member Member:
+              =link_to "Edit", edit_group_path(@group), :class => "right__top__btn1"
+            %li.right__top__member 
+            -@group.users.each do |user| 
+              = "Members: " + user.name
 
         .right__middle
           =render @messages
