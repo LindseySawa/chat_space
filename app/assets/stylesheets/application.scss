@@ -14,6 +14,8 @@
  *= require_self
  */
 
+ @import "./config/colors.scss";
+ @import "./modules/flash.scss";
  @import "./reset";
  @import "font-awesome";
- @import "./message";
+ @import "./message.scss";

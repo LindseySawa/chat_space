@@ -57,6 +57,7 @@ html, body{
       font-size: 15px;
       padding-bottom: 5px;
       box-sizing: border-box;
+      color: white;
   
     }
   
@@ -64,6 +65,8 @@ html, body{
       font-size: 11px;
       padding-bottom: 40px;
       box-sizing: border-box;
+      color: white;
+
   
     }
   
@@ -78,6 +81,7 @@ html, body{
   position: relative;
   min-height: calc(100vh - 70px);
 
+
   &__top{
     height: 100px;
     box-sizing: border-box;
@@ -87,7 +91,7 @@ html, body{
       font-size: 20px;
     }
     &__member{
-      font-size: 12px;
+      font-size: 8px;
     }
       &__btn1{
         text-decoration: none;
@@ -110,6 +114,7 @@ html, body{
     height: calc(100vh - 200px);
     box-sizing: border-box;
     padding: 46px 40px 0 40px;
+    overflow: scroll;
 
   }
 
@@ -145,43 +150,49 @@ html, body{
   &__bottom{
     height: 100px;
     width: 100%;
+    box-sizing: border-box;
+    padding: 20px 40px;
+    background-color: lightgray;
+
 
   }
 
   &__form{
-    box-sizing: border-box;
-    padding: 20px 40px;
-    background-color: lightgray;
-    position: absolute;
-    bottom: 0;
-    height: 90px;
-    width: 100%;
+    // // box-sizing: border-box;
+    // // padding: 20px 40px;
+    // position: absolute;
+    // bottom: 0;
+    // height: 90px;
+    // width: 100%;
+    // display: inline-block;
   }
 
-  &__msg{
-    display: flex;
-    width: 100%;
-    position: relative;
+  // &__msg{
+  //   display: flex;
+  //   width: 100%;
+  //   position: relative;
 
-  }
+  // }
 
   .hidden{
     display: none;
   }
 
   &__text{
-    width: 100%;
-    position: relative;
+    // width: 100%;
+    // position: relative;
+  
 
     &__input{
       width: 100%;
-      height: 50px;
+      height: 60px;
       background-color: white;
-      line-height: 50px;
+      line-height: 60px;
       margin-right: 5px;
       padding: 0 40px 0 10px;
       box-sizing: border-box;
       border-style: none;
+
       
     }
   
@@ -189,8 +200,8 @@ html, body{
 
   &__text__msg{
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 100px;
   }
 
 
@@ -202,10 +213,15 @@ html, body{
     color: white;
     text-align: center;
     margin-left: 15px;
-    height: 50px;
+    height: 60px;
     line-height: 50px;
-    float: right;
+    // float: right;
     text-decoration: none;
   }
+}
+.new_message{
+  display: flex;
+  position: relative;
+
 }
 
