@@ -1,4 +1,20 @@
 $(function () {
+  function buildHTML(comment) {
+    var imagehtml = message.image.present ? <img class='right__chat2__img' src='${message.image.url}'></img> : ""
+    var html = `<div class='right__chat1'>
+                  <div class='right__chat1__user'>
+                    ${message.user.name}</div>
+                  <div class='right__chat1__time'>
+                    ${message.created_at.strftime("%Y/%m/%d %H:%M")}</div>
+                  <div class='right__chat2'>
+                    ${message.content}</div>
+                    <div class='right__chat2__msg>
+                    imagehtml</div>
+                 </div>`
+    return html;
+  }
+
+
   $('#new_message').on('submit', function (e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -11,5 +27,14 @@ $(function () {
       processData: false,
       contentType: false
     })
+      .done(function (data) {
+        var html = buildHTML(data);
+        $('.right__middle').append(html)
+        $('#message_content').val('')
+        $('.right__chat1').animate({ scrollTop: $('.right__chat1').offset().top }, 'slow');
+      })
+      .fail(function () {
+        alert('error');
+      })
   })
-})
+});
