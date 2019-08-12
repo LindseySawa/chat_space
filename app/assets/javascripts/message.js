@@ -40,8 +40,7 @@ $(function () {
         $('.right__middle').append(html);
         $('.right__text__input').val('');
         $('.right__middle').animate({ scrollTop: $('.right__middle')[0].scrollHeight }, 'fast');
-        $('.form__submit').prop('disabled', false);
-        console.log(html);
+        $('.right__btn2').prop('disabled', false);
 
       })
       .fail(function () {
