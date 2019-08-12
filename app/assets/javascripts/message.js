@@ -1,16 +1,20 @@
 $(function () {
   function buildHTML(message) {
-    var imagehtml = message.image ? <img class='right__chat2__img' src='${message.image.url}'></img> : ""
+    var imagehtml = message.image ? `<img class='right__chat2__img' src='${message.image}'></img>` : "";
     var html = `<div class='right__chat1'>
-                  <div class='right__chat1__user'>
-                    ${message.user.name}</div>
-                  <div class='right__chat1__time'>
-                    ${message.created_at.strftime("%Y/%m/%d %H:%M")}</div>
-                  <div class='right__chat2'>
-                    ${message.content}</div>
-                    <div class='right__chat2__msg>
-                    ${imagehtml}</div>
-                 </div>`
+                    <div class='right__chat1__user'>
+                      ${message.name}
+                      </div>
+                    <div class='right__chat1__time'>
+                      ${message.created_at}
+                      </div>
+                    <div class='right__chat2'>
+                      <div class='right__chat2__msg>
+                      ${message.content}
+                      </div>
+                      ${imagehtml}
+                    </div>
+                  </div>`;
     return html;
   }
 
@@ -18,7 +22,7 @@ $(function () {
   $('#new_message').on('submit', function (e) {
     e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action')
+    var url = $(this).attr('action');
     $.ajax({
       url: url,
       type: "POST",
@@ -26,15 +30,18 @@ $(function () {
       dataType: 'json',
       processData: false,
       contentType: false
+
     })
       .done(function (data) {
         var html = buildHTML(data);
-        $('.right__middle2').append(html)
-        $('.right__text__input').val('')
-        $('.right__middle2').animate({ scrollTop: $('.right__middle2')[0].scrollHeight }, 'fast');
+        $('.right__middle').append(html);
+        $('.right__text__input').val('');
+        $('.right__middle').animate({ scrollTop: $('.right__middle')[0].scrollHeight }, 'fast');
+        $('.form__submit').prop('disabled', false);
+
       })
       .fail(function () {
         alert('error');
-      })
-  })
+      });
+  });
 });
