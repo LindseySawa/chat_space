@@ -7,12 +7,11 @@ class MessagesController < ApplicationController
   end
 
   def create
-    binding.pry
     @message = @group.messages.new(message_params)
     if @message.save
       respond_to do |format|
+        format.json { render 'create.json.jbuilder'}
         format.html { redirect_to group_messages_path(@group)}
-        format.json
       end
       flash[:notice] = "メッセージが送信されました"
     else
