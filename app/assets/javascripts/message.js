@@ -38,7 +38,7 @@ $(function () {
       .done(function (data) {
         var html = buildHTML(data);
         $('.right__middle').append(html);
-        $('.right__text__input').val('');
+        $('.right__text__input').reset();
         $('.right__middle').animate({ scrollTop: $('.right__middle')[0].scrollHeight }, 'fast');
         $('.right__btn2').prop('disabled', false);
 
