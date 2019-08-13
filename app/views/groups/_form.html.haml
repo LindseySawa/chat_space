@@ -25,9 +25,11 @@
 
     .chat-group-form__field--right
       .chat-group-form__field--right1
+        -# - @group.users.each do |user|
         .chat-group-user
-          = f.hidden_field :user_ids, name: "group[user_ids][]", value:""
+          %input{name: "chat_group[user_ids][]", type: "hidden", value: current_user.id}/          
           %p#chat_member
+            = current_user.name
 
 
       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
