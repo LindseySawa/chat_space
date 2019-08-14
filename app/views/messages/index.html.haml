@@ -19,9 +19,10 @@
                 = @group.name
             %li.right__top__edit
               =link_to "Edit", edit_group_path(@group), :class => "right__top__btn1"
-            %li.right__top__member 
+            %li.right__top__member Member:
+            %li.right__top__members
             -@group.users.each do |user| 
-              = "Members: " + user.name
+              = user.name
 
         .right__middle
           = render @messages

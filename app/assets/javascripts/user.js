@@ -64,7 +64,9 @@ $(function () {
       var user_name = $(this).attr("data-user-name");
       var html = appendUsers(user_id, user_name);
       $(this).parent().remove();
-      $('.chat-group-user__name').append(html);
+      $('#user-search-result').append(html);
+
+
 
     })
   })
