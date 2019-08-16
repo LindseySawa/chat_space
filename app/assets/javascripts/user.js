@@ -65,11 +65,10 @@ $(function () {
       var html = appendUsers(user_id, user_name);
       $(this).parent().remove();
       $('#user-search-result').append(html);
-
-
-
     })
   })
+
+
   $(function () {
     $('.chat-group-user').on('click', ".user-search-remove", function () {
       $(this).parent().remove();
