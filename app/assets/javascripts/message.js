@@ -1,25 +1,39 @@
 $(function () {
   function buildHTML(message) {
     var imagehtml = message.image ? `<img class='right__chat2__img' src='${message.image}'></img>` : "";
-    var html = `<div class='right__middle2'>
-                  <div class='right__chat1'>
-                    <div class='right__chat1__user'>
-                      ${message.name}
-                      </div>
-                    <div class='right__chat1__time'>
-                      ${message.created_at}
-                      </div>
-                    </div>
-
+    var common_html = `<div class='right__middle2'>
+                        <div class='right__chat1'>
+                          <div class='right__chat1__user'>
+                            ${message.name}
+                            </div>
+                          <div class='right__chat1__time'>
+                            ${message.created_at}
+                            </div>
+                          </div>
+                      </div>`
+    if (message.content && message.image.url) {
+      var html = `${common_html}
                     <div class='right__chat2'>
                       <div class='right__chat2__msg'>
                       ${message.content}
                       </div>
                       ${imagehtml}
-                    </div>
-                </div>`;
+                    </div>`
+    } else if (message.content) {
+      var html = `${common_html}
+                    <div class='right__chat2'>
+                      <div class='right__chat2__msg'>
+                      ${message.content}
+                      </div>
+                    </div>`
+    } else if (message.image.url) {
+      var html = `${common_html}
+                    <div class='right__chat2'>
+                      ${imagehtml}
+                    </div>`
+    };
     return html;
-  }
+  };
 
 
   $('#new_message').on('submit', function (e) {
@@ -50,4 +64,25 @@ $(function () {
         alert('error');
       });
   });
+  var reloadMessages = function () {
+    last_message_id = $('.right__middle2:last').data('message.id')
+    $.ajax({
+      url: 'api/messages',
+      type: 'get',
+      dataType: 'json',
+      data: { id: last_message_id }
+    })
+      .done(function (messages) {
+        messages.forEach(function (messages) {
+          var inserHTML = buildHTML(messages);
+          $('.right__middle').appemd(html);
+          $('.right__middle').animate({ scrollTop: $('.right__middle')[0].scrollHeight }, 'fast');
+
+        })
+      })
+      .fail(function () {
+        alert('更新に失敗しました')
+      });
+  };
+  setInterval(reloadMessages, 5000);
 });
