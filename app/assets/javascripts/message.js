@@ -39,6 +39,7 @@ $(function () {
         var html = buildHTML(data);
         $('.right__middle').append(html);
         $('.right__middle').animate({ scrollTop: $('.right__middle')[0].scrollHeight }, 'fast');
+        $('.left__bottom').animate({ scrollTop: $('.left__bottom')[0].scrollHeight }, 'fast');
         $('#new_message')[0].reset();
         $('.right__btn2').prop('disabled', false);
 

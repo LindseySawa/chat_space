@@ -52,6 +52,8 @@ html, body{
     height: calc(100vh - 100px);
     box-sizing: border-box;
     padding: 20px 20px 0 20px;
+    overflow: scroll;
+
 
     &__groupname{
       font-size: 15px;
@@ -92,6 +94,10 @@ html, body{
     }
     &__member{
       font-size: 8px;
+    }
+    &__members{
+      font-size: 12px;
+      color: darkgray;
     }
       &__btn1{
         text-decoration: none;
