@@ -1,0 +1,32 @@
+%header
+
+.contents
+  =render partial:"shared/left"
+
+
+
+
+  .right
+    .right__top
+      %ul
+        %li
+          %h3.right__top__gname 
+            = @group.name
+        %li.right__top__edit
+          =link_to "Edit", edit_group_path(@group), :class => "right__top__btn1"
+        %li.right__top__member
+          ="members:"
+        %li.right__top__members
+          = user.name
+
+    .right__middle
+      =render @messages
+      
+    .right__bottom
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'right__text__input', id: 'new_msg', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'right__text__msg' do
+            = fa_icon 'camera-retro', class: 'imageicon'
+            = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: 'right__btn2'
