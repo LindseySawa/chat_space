@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function () {
                             </div>
                           </div>
                       </div>`
-      if (message.content && message.image.url) {
+      if (message.content && message.image) {
         var html = `${common_html}
                     <div class='right__chat2'>
                       <div class='right__chat2__msg'>
@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function () {
                       ${message.content}
                       </div>
                     </div>`
-      } else if (message.image.url) {
+      } else if (message.image) {
         var html = `${common_html}
                     <div class='right__chat2'>
                       ${imagehtml}
