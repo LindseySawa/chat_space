@@ -19,8 +19,8 @@
                 = @group.name
             %li.right__top__edit
               =link_to "Edit", edit_group_path(@group), :class => "right__top__btn1"
-            %li.right__top__member Member:
-            %li.right__top__members
+            %li.right__top__member.member Member:
+            %li.right__top__members.member
             -@group.users.each do |user| 
               = user.name
 

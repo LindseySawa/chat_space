@@ -5,8 +5,7 @@
     .right__chat1__time
       =message.created_at.strftime("%Y/%m/%d %H:%M")
   .right__chat2
-    - if message.content.present?
-      .right__chat2__msg
-        = message.content
-      = image_tag message.image.url, class: 'right__chat2__img' if message.image.present?
+    .right__chat2__msg
+      = message.content if message.content.present?
+    = image_tag message.image.url, class: 'right__chat2__img' if message.image.present?
 

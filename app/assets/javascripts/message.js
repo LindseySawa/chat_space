@@ -3,37 +3,23 @@ $(document).on('turbolinks:load', function () {
     function buildHTML(message) {
       var imagehtml = message.image ? `<img class='right__chat2__img' src='${message.image}'></img>` : "";
       var common_html = `<div class='right__middle2' data-message-id="${message.id}">
-                        <div class='right__chat1'>
-                          <div class='right__chat1__user'>
-                            ${message.user_name}
-                            </div>
-                          <div class='right__chat1__time'>
-                            ${message.created_at}
+                          <div class='right__chat1'>
+                            <div class='right__chat1__user'>
+                              ${message.user_name}
+                              </div>
+                            <div class='right__chat1__time'>
+                              ${message.created_at}
+                              </div>
                             </div>
                           </div>
-                      </div>`
-      if (message.content && message.image) {
-        var html = `${common_html}
-                    <div class='right__chat2'>
-                      <div class='right__chat2__msg'>
-                      ${message.content}
-                      </div>
-                      ${imagehtml}
-                    </div>`
-      } else if (message.content) {
-        var html = `${common_html}
-                    <div class='right__chat2'>
-                      <div class='right__chat2__msg'>
-                      ${message.content}
-                      </div>
-                    </div>`
-      } else if (message.image) {
-        var html = `${common_html}
-                    <div class='right__chat2'>
-                      ${imagehtml}
-                    </div>`
-      };
-      return html;
+                          <div class='right__chat2'>
+                            <div class='right__chat2__msg'>
+                            ${message.content}
+                            </div>
+                            ${imagehtml}
+                          </div>
+                        </div>`
+      return common_html;
     };
 
 
@@ -53,9 +39,10 @@ $(document).on('turbolinks:load', function () {
         .done(function (data) {
           var html = buildHTML(data);
           $('.right__middle').append(html);
+
           $('.right__middle').animate({ scrollTop: $('.right__middle')[0].scrollHeight }, 'fast');
           $('.left__bottom').animate({ scrollTop: $('.left__bottom')[0].scrollHeight }, 'fast');
-          $('#new_message')[0].reset();
+          $("#new_message")[0].reset();
           $('.right__btn2').prop('disabled', false);
         })
 
